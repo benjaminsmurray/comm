@@ -3,12 +3,13 @@ package handlers;
 import java.util.List;
 
 import messages.Message;
-import comm.ReceiveMessageCallbackInterface;
+import comm.UserInterface;
 import comm.User;
 import comm.UserID;
 
 public final class UserHandler {
-	public static final UserHandler INSTANCE = new UserHandler();
+	private static final UserHandler INSTANCE = new UserHandler();
+	//UsersContainer is the DB of users. For now, a java object can hold them.
 	private static UsersContainer usersContainer = new UsersContainer();
 	
     // Private constructor prevents instantiation from other classes
@@ -29,8 +30,9 @@ public final class UserHandler {
 		
 		for (UserID recipient: contacts)
 		{
-				ReceiveMessageCallbackInterface callback = usersContainer.get(recipient);
+				UserInterface callback = usersContainer.get(recipient);
 				//TODO currently returns fail on first delivery failure. Think about that...?
+				//retry logic
 				if (!callback.receiveMessageCallback(contacts, m))
 				{
 					return false;
@@ -42,8 +44,8 @@ public final class UserHandler {
 	//A new user must register it's "receiveMessage" callback in order to receive messages
 	public boolean addNewUser(User user) {
 
-			ReceiveMessageCallbackInterface callback = user;
-			return usersContainer.put(user.getuserID(), callback);
+			UserInterface callback = user;
+			return usersContainer.put(user.getUserID(), callback);
 	}
 
 }

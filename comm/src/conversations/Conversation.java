@@ -19,7 +19,7 @@ public class Conversation {
 
 
 
-	//A new conversation must have at least one contact - a creating user can socialize with him/herself
+	//A new conversation must have at least one contact - a creating user can message him/herself
 	//Every new conversation is given a conversation ID.
 	public Conversation(List<UserID> contacts) {
 		this.contacts = contacts;

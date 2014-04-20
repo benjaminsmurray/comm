@@ -8,24 +8,30 @@ import messages.Message;
 import conversations.Conversation;
 import conversations.ConversationsContainer;
 
-public class User implements ReceiveMessageCallbackInterface{
+public class User implements UserInterface {
 	private UserID userID;
+	//ConversationContainer is a DB holding all conversations and messages owned by a User
+	//This needs to be accessible by the User from anywhere. For now, a simple java object will do.
 	private ConversationsContainer conversationContainer;
 	private UserHandler userHandler;
 
 	public User(UserID userID) {
 		// a user has 3 components: a userID, a container holding all current
 		// conversations, and a receiveMessage callback.
-		this.setuserID(userID);
+		// New User objects must be registered with the userHandler, so the
+		// handler "knows"
+		// about the receiveMessage callback to use when a message is incoming
+		// for this user
+		this.setUserID(userID);
 		conversationContainer = new ConversationsContainer();
 		userHandler = UserHandler.getInstance();
 		// TODO what if this returns false?
-		// A new user must be register a receiveMessage callback
+		// A new user must register a receiveMessage callback
 		userHandler.addNewUser(this);
 	}
 
 	// send a message to a list of contacts. return true on success
-	//TODO contacts must contain at least the calling user, cannot be empty
+	// TODO contacts must contain at least the calling user, cannot be empty
 	public boolean sendMessage(List<UserID> contacts, Message message) {
 
 		// contacts is a parameter because it is used as the index for a
@@ -50,11 +56,11 @@ public class User implements ReceiveMessageCallbackInterface{
 		return conversationContainer.get(contacts);
 	}
 
-	public UserID getuserID() {
+	public UserID getUserID() {
 		return userID;
 	}
 
-	public void setuserID(UserID userID) {
+	public void setUserID(UserID userID) {
 		this.userID = userID;
 	}
 }

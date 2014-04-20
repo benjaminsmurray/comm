@@ -8,7 +8,7 @@ import comm.UserID;
 
 public class ConversationsContainer {
 	private HashMap<Integer, Conversation> conversations;
-	
+
 	public ConversationsContainer()
 	{
 		conversations = new HashMap<Integer, Conversation>();
