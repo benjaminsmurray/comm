@@ -1,12 +1,11 @@
-package Handlers;
+package handlers;
 
 import java.util.List;
 
+import messages.Message;
 import comm.ReceiveMessageCallbackInterface;
 import comm.User;
 import comm.UserID;
-import comm.UsersContainer;
-import comm.Messages.Message;
 
 public final class UserHandler {
 	public static final UserHandler INSTANCE = new UserHandler();

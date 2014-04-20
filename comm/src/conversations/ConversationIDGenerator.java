@@ -1,4 +1,4 @@
-package comm.Conversations;
+package conversations;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package comm.Conversations;
+package conversations;
 
 import java.util.HashMap;
 import java.util.List;
 
+import messages.Message;
 import comm.UserID;
-import comm.Messages.Message;
 
 public class ConversationsContainer {
 	private HashMap<Integer, Conversation> conversations;

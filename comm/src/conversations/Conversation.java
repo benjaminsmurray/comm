@@ -1,10 +1,10 @@
-package comm.Conversations;
+package conversations;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import messages.Message;
 import comm.UserID;
-import comm.Messages.Message;
 
 public class Conversation {
 	//a conversation has 2 components.

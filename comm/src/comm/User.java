@@ -1,11 +1,12 @@
 package comm;
 
+import handlers.UserHandler;
+
 import java.util.List;
 
-import Handlers.UserHandler;
-import comm.Conversations.Conversation;
-import comm.Conversations.ConversationsContainer;
-import comm.Messages.Message;
+import messages.Message;
+import conversations.Conversation;
+import conversations.ConversationsContainer;
 
 public class User implements ReceiveMessageCallbackInterface{
 	private UserID userID;

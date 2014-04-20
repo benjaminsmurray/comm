@@ -1,6 +1,9 @@
-package comm;
+package handlers;
 
 import java.util.concurrent.ConcurrentHashMap;
+
+import comm.ReceiveMessageCallbackInterface;
+import comm.UserID;
 
 public class UsersContainer {
 	private static ConcurrentHashMap<UserID, ReceiveMessageCallbackInterface> Users = new ConcurrentHashMap<UserID, ReceiveMessageCallbackInterface>();

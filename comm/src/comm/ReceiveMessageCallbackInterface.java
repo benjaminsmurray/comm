@@ -2,7 +2,7 @@ package comm;
 
 import java.util.List;
 
-import comm.Messages.Message;
+import messages.Message;
 
 public interface ReceiveMessageCallbackInterface {
 	//RecieveMessage needs to take the users involved in the conversation, and the new message.
