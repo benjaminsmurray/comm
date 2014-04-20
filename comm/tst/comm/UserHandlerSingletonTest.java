@@ -1,11 +1,10 @@
 package comm;
 
 import static org.junit.Assert.*;
+import handlers.UserHandler;
 import junit.framework.Assert;
 
 import org.junit.Test;
-
-import Handlers.UserHandler;
 
 public class UserHandlerSingletonTest {
 
